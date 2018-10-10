@@ -29,7 +29,7 @@ express.get('*', (req, res) => {
         let state = JSON.stringify(context.state)
 
         renderer.renderToString(app, (err, html) => {
-            if (err) { return res.state(500).end('运行时错误') }
+            if (err) { return res.status(500).end('运行时错误') }
             res.send(`
                 <!DOCTYPE html>
                 <html lang="en">

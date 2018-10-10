@@ -15,8 +15,8 @@ export default context => {
 
       // 遍历路由下所以的组件，如果有需要服务端渲染的请求，则进行请求
       Promise.all(matchedComponents.map(component => {
-        if (component.serverRequest) {
-            return component.serverRequest(app.$store)
+        if (component.asyncData) {
+            return component.asyncData(app.$store)
         }
     })).then(() => {
         context.state = app.$store.state
